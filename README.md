@@ -30,3 +30,13 @@ Include julia binary in system path, e.g.,
 # julia
 export PATH="/home/julian/git/julia/julia-1.9.4/bin:$PATH"
 ```
+# Next steps
+- Environments
+- Equivalents to
+    - `numpy`
+    - `numpy.ndarray`
+    - `numpy.einsum`
+    - `pandas`
+    - `matplotlib`
+- Matlab-to-Julia converter
+- Minimal working example
