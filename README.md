@@ -1,5 +1,17 @@
 # metis_julia
 
+# Install / add / dev the new local package
+
+Enter "package-mode" in Julia-session terminal by pressing `]` then type
+```bash
+dev ./Package1/
+```
+
+after that, use the package by
+
+```julia
+import Package1
+```
 
 
 # Installation
