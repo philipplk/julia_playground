@@ -13,6 +13,12 @@ after that, use the package by
 import Package1
 ```
 
+# Remove package from current environment
+
+```
+pkg> rm Package1
+```
+
 
 # Installation
 ## Ubuntu
