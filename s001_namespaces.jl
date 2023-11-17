@@ -19,3 +19,5 @@ include("module1.jl")
 import .Ourfancymodule
 b = Ourfancymodule.a
 println("b=$b")
+
+# Start new script from within interactive Julia session: include("s001_namespaces.jl")
