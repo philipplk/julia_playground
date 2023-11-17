@@ -1,5 +1,7 @@
 # Julia Playground
 
+Our [holy grail](https://cheatsheets.quantecon.org).
+
 ## References
 - [Getting started](https://docs.julialang.org/en/v1/manual/getting-started/)
 - [Differences to Python](https://docs.julialang.org/en/v1/manual/noteworthy-differences/#Noteworthy-differences-from-Python)
