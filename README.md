@@ -1,5 +1,10 @@
 # metis_julia
 
+# References
+- [Getting started](https://docs.julialang.org/en/v1/manual/getting-started/)
+- [Developing Packages](https://julialang.org/contribute/developing_package/)
+- [Pkg docs](https://pkgdocs.julialang.org/v1/managing-packages/#Adding-unregistered-packages)
+
 # Install / add / dev the new local package
 
 Enter "package-mode" in Julia-session terminal by pressing `]` then type
