@@ -33,7 +33,11 @@ pkg> rm Package1
 
 ### MacOS
 
-Follow the instructions on the official [Julia](https://julialang.org/downloads/platform/) webpage.
+Follow the instructions on the official [Julia](https://julialang.org/downloads/platform/) webpage or install in terminal:
+
+```bash
+brew install --cask julia
+```
 
 ### Ubuntu
 Download and extract binary files from [here](https://julialang.org/downloads/platform/#linux_and_freebsd).
