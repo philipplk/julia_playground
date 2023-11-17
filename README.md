@@ -4,6 +4,7 @@
 - [Getting started](https://docs.julialang.org/en/v1/manual/getting-started/)
 - [Developing Packages](https://julialang.org/contribute/developing_package/)
 - [Pkg docs](https://pkgdocs.julialang.org/v1/managing-packages/#Adding-unregistered-packages)
+- [Pkg environments](https://pkgdocs.julialang.org/v1/environments/)
 
 # Install / add / dev the new local package
 
