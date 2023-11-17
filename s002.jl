@@ -12,3 +12,5 @@ t = Template(;
         GitHubActions(),
     ],
 )
+
+t("Package1")
