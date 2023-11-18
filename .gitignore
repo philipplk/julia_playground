@@ -23,5 +23,5 @@ docs/site/
 # environment.
 Manifest.toml
 
-# mac stuff
-*.DS_Store
+# Mac storage files
+**/*.DS_Store
