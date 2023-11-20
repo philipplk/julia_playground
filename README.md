@@ -11,6 +11,12 @@ Our [holy grail](https://cheatsheets.quantecon.org).
 - [Pkg docs](https://pkgdocs.julialang.org/v1/managing-packages/#Adding-unregistered-packages)
 - [Pkg environments](https://pkgdocs.julialang.org/v1/environments/)
 
+OOP vs. functional programming in Julia:
+- [How To Use Julia Object-Oriented Programming Effectively](https://marketsplash.com/tutorials/julia/julia-object-oriented-programming/)
+- [Julia wiki on OOP](https://www.juliawiki.com/wiki/Object_oriented_programming)
+- [Stackoverflow: OOP or not?](https://stackoverflow.com/questions/33755737/julia-oop-or-not)
+- [An interesting discourse](https://discourse.julialang.org/t/is-julias-way-of-oop-superior-to-c-python-why-julia-doesnt-use-class-based-oop/52058)
+
 ## Install / add / dev the new local package
 
 Enter "package-mode" in Julia-session terminal by pressing `]` then type
