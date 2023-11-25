@@ -76,6 +76,19 @@ Execute file in interactive session
 julia -i s005_pendulum.jl
 ```
 
+## Julia Hacks
+
+Identify functions which operate on specific type
+```julia
+A = [1,2,3]
+methodswith(typeof(A))
+```
+
+Identify signatures (types of arguments) a function can operate on
+```julia
+methods(+)  # Inspects the "+"-operator
+```
+
 ## Next steps
 
 - Environments
