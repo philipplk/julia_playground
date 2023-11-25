@@ -1,5 +1,6 @@
 import LinearAlgebra as la
-
+include("code.jl")
+import .code: newton_update
 
 # system parameters
 gravity = 9.81
@@ -35,10 +36,7 @@ state[1, :] = state_initial  # set initial values into memory array
 
 println("size(state)=$(size(state))")
 
-function newton_update(; state_n1, state_n)
-    println("state_n1=$state_n1, state_n=$state_n")
-    return state_n1
-end
+
 
 time = time_start
 state_n = state_initial
@@ -56,3 +54,6 @@ while time < time_end
     global time_index = time_index + 1
     println("time=$time")
 end
+
+
+
