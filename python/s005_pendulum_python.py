@@ -28,7 +28,9 @@ integrator = "MP"  # EE (explicit Euler), IE (implicit Euler), MP (midpoint)
 angle_initial = 0.0  # initial angle
 velocity_initial = 1.0  # initial angular velocity
 state_initial = np.array([angle_initial, velocity_initial])  # initial state
-state = np.zeros((NT + 2, 2))  # memory array containing all states during motion
+state = np.zeros(
+    (number_timestep + 2, 2)
+)  # memory array containing all states during motion
 state[0, :] = state_initial  # set initial values into memory array
 
 
@@ -96,7 +98,7 @@ def newton_update(state_n1, state_n):
         residual, tangent_matrix = compute(state_n1, state_n, integrator)
         state_delta = -np.linalg.inv(tangent_matrix) @ residual
         state_n1 = state_n1 + state_delta
-        residual_norm = np.linalg.norm(R)
+        residual_norm = np.linalg.norm(residual)
     return state_n1
 
 
