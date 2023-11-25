@@ -3,3 +3,4 @@ matplotlib
 ipython
 black
 isort
+PyQt5
