@@ -3,6 +3,7 @@
 Our [holy grail](https://cheatsheets.quantecon.org).
 
 ## References
+
 - [Getting started](https://docs.julialang.org/en/v1/manual/getting-started/)
 - [Differences to Python](https://docs.julialang.org/en/v1/manual/noteworthy-differences/#Noteworthy-differences-from-Python)
 - [Differences to Matlab][https://docs.julialang.org/en/v1/manual/noteworthy-differences/#Noteworthy-differences-from-MATLAB]
@@ -12,6 +13,7 @@ Our [holy grail](https://cheatsheets.quantecon.org).
 - [Pkg environments](https://pkgdocs.julialang.org/v1/environments/)
 
 OOP vs. functional programming in Julia:
+
 - [How To Use Julia Object-Oriented Programming Effectively](https://marketsplash.com/tutorials/julia/julia-object-oriented-programming/)
 - [Julia wiki on OOP](https://www.juliawiki.com/wiki/Object_oriented_programming)
 - [Stackoverflow: OOP or not?](https://stackoverflow.com/questions/33755737/julia-oop-or-not)
@@ -20,6 +22,7 @@ OOP vs. functional programming in Julia:
 ## Install / add / dev the new local package
 
 Enter "package-mode" in Julia-session terminal by pressing `]` then type
+
 ```bash
 dev ./Package1/
 ```
@@ -36,7 +39,6 @@ import Package1
 pkg> rm Package1
 ```
 
-
 ## Installation
 
 ### MacOS
@@ -48,23 +50,40 @@ brew install --cask julia
 ```
 
 ### Ubuntu
+
 Download and extract binary files from [here](https://julialang.org/downloads/platform/#linux_and_freebsd).
 
-### Make Julia accesible in shell
+### Make Julia accessible in shell
 
-Include julia binary in system path, e.g., 
-```bash
+Include Julia binary in system path, e.g.,
+
+```zsh
 # julia
 export PATH="/home/julian/git/julia/julia-1.9.4/bin:$PATH"
 ```
 
+## Usage
+
+Start Julia
+
+```zsh
+julia
+```
+
+Execute file in interactive session
+
+```zsh
+julia -i s005_pendulum.jl
+```
+
 ## Next steps
+
 - Environments
 - Equivalents to
-    - `numpy`
-    - `numpy.ndarray`
-    - `numpy.einsum`
-    - `pandas`
-    - `matplotlib`
+  - `numpy`
+  - `numpy.ndarray`
+  - `numpy.einsum`
+  - `pandas`
+  - `matplotlib`
 - Matlab-to-Julia converter
 - Minimal working example
