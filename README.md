@@ -50,10 +50,11 @@ brew install --cask julia
 ### Ubuntu
 Download and extract binary files from [here](https://julialang.org/downloads/platform/#linux_and_freebsd).
 
-### Make Julia accesible in shell
+### Make Julia accessible in shell
 
 Include julia binary in system path, e.g., 
-```bash
+
+```zsh
 # julia
 export PATH="/home/julian/git/julia/julia-1.9.4/bin:$PATH"
 ```
