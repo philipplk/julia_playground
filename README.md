@@ -70,6 +70,11 @@ Start Julia
 julia
 ```
 
+Execute file in interactive session
+
+```zsh
+julia -i s005_pendulum.jl
+```
 
 ## Next steps
 
