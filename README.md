@@ -89,6 +89,10 @@ Identify signatures (types of arguments) a function can operate on
 methods(+)  # Inspects the "+"-operator
 ```
 
+## Array creation
+
+- [Create arrays](https://docs.julialang.org/en/v1/manual/arrays/#man-array-literals)
+
 ## Next steps
 
 - Environments
