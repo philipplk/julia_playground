@@ -34,3 +34,25 @@ state = zeros(number_timestep + 2, 2)  # memory array containing all states duri
 state[1, :] = state_initial  # set initial values into memory array
 
 println("size(state)=$(size(state))")
+
+function newton_update(; state_n1, state_n)
+    println("state_n1=$state_n1, state_n=$state_n")
+    return state_n1
+end
+
+time = time_start
+state_n = state_initial
+state_n1 = state_initial
+time_index = 0
+
+while time < time_end
+    global state_n = state_n1
+
+    global state_n1 = newton_update(state_n1=state_n1, state_n=state_n)
+    println("state_n1=$state_n1")
+    global state[time_index+1, :] = state_n1
+
+    global time = time + timestepsize
+    global time_index = time_index + 1
+    println("time=$time")
+end
