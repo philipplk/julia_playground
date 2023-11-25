@@ -43,6 +43,15 @@ class System:
         return np.diag([self.mass * self.gravity * self.length * np.cos(q), 1])
 
 
+class TimeStepper:
+    def __init__(self, **kwargs):
+        self.__dict__.update(kwargs)
+
+        self.number_timestep = int(
+            (self.time_end - self.time_start) / self.timestepsize
+        )  # number of time steps
+
+
 class Solver:
     def __init__(self, **kwargs):
         self.__dict__.update(kwargs)
@@ -72,7 +81,7 @@ class Solver:
             z_n = self.system.get_z_vector(state_n)
             residual = (
                 self.system.E_matrix @ (state_n1 - state_n)
-                - self.timestepsize * self.system.J_matrix @ z_n
+                - self.timeStepper.timestepsize * self.system.J_matrix @ z_n
             )
             tangent = self.system.E_matrix
 
@@ -82,11 +91,11 @@ class Solver:
             dzn1_dxn1 = self.system.get_Jacobian(state_n1)
             residual = (
                 self.system.E_matrix @ (state_n1 - state_n)
-                - self.timestepsize * self.system.J_matrix @ z_n1
+                - self.timeStepper.timestepsize * self.system.J_matrix @ z_n1
             )
             tangent = (
                 self.system.E_matrix
-                - self.timestepsize * self.system.J_matrix @ dzn1_dxn1
+                - self.timeStepper.timestepsize * self.system.J_matrix @ dzn1_dxn1
             )
 
         elif integrator == "midpoint":
@@ -96,11 +105,11 @@ class Solver:
             dzn05_dxn1 = 0.5 * self.system.get_Jacobian(state_n1)
             residual = (
                 self.system.E_matrix @ (state_n1 - state_n)
-                - self.timestepsize * self.system.J_matrix @ z_n05
+                - self.timeStepper.timestepsize * self.system.J_matrix @ z_n05
             )
             tangent = (
                 self.system.E_matrix
-                - self.timestepsize * self.system.J_matrix @ dzn05_dxn1
+                - self.timeStepper.timestepsize * self.system.J_matrix @ dzn05_dxn1
             )
 
         return residual, tangent
@@ -127,3 +136,25 @@ class Solver:
             state_n1 = state_n1 + state_delta
             residual_norm = np.linalg.norm(residual)
         return state_n1
+
+    def solve(self, state_initial):
+        # Solver stuff
+        self.state = np.zeros(
+            (self.timeStepper.number_timestep + 2, 2)
+        )  # memory array containing all states during motion
+        self.state[0, :] = state_initial  # set initial values into memory array
+
+        #  time-stepping
+        time = self.timeStepper.time_start
+        state_n = state_initial
+        state_n1 = state_initial
+        time_index = 0
+        while time < self.timeStepper.time_end:
+            state_n = state_n1
+
+            state_n1 = self.newton_update(state_n1, state_n)
+            self.state[time_index + 1, :] = state_n1
+
+            time = time + self.timeStepper.timestepsize
+            time_index = time_index + 1
+        return self.state
