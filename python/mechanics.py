@@ -67,7 +67,7 @@ class Solver:
             tangent matrix of Newtons method.
 
         """
-        if integrator == "EE":
+        if integrator == "euler_explicit":
             # explicit Euler, evaluates z at t_n
             z_n = self.system.get_z_vector(state_n)
             residual = (
@@ -76,7 +76,7 @@ class Solver:
             )
             tangent = self.system.E_matrix
 
-        elif integrator == "IE":
+        elif integrator == "euler_implicit":
             # implicit Euler, evaluates z at t_n1
             z_n1 = self.system.get_z_vector(state_n1)
             dzn1_dxn1 = self.system.get_Jacobian(state_n1)
@@ -89,7 +89,7 @@ class Solver:
                 - self.timestepsize * self.system.J_matrix @ dzn1_dxn1
             )
 
-        elif integrator == "MP":
+        elif integrator == "midpoint":
             # Midpoint rule, evaluates z at t_n05
             state_n05 = 0.5 * (state_n + state_n1)
             z_n05 = self.system.get_z_vector(state_n05)

@@ -23,7 +23,7 @@ time_start = 0.0  # start time
 time_end = 3.0  # end time
 number_timestep = int((time_end - time_start) / timestepsize)  # number of time steps
 newton_epsilon = 1e-7  # tolerance of Newton's method (norm of residual vector)
-integrator = "MP"  # EE (explicit Euler), IE (implicit Euler), MP (midpoint)
+integrator = "euler_explicit"
 
 #  initial values
 angle_initial = 0.0  # initial angle
