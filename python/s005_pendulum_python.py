@@ -4,14 +4,6 @@ Created on Wed Nov 22 18:14:34 2023
 @author: philipp
 """
 
-# Notes:
-# The time stepping scheme is currently rather naive:
-# The systems behavior usually depends on teh time aswell.
-# The solver should adapt the timestepping based on quality measures
-# The length of the solution (state) currently depends on setting of the timestepping
-# Ususally the number of iterations required to archive a satisfactory precision is not known a priori
-# From an engineering point of view, we request the solution at specific points in time and the time stepping
-# combined with the solver should do what it needs to do to get the solution at the specified points in time.
 
 
 import numpy as np
