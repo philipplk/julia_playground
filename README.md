@@ -6,7 +6,7 @@ Our [holy grail](https://cheatsheets.quantecon.org).
 
 - [Getting started](https://docs.julialang.org/en/v1/manual/getting-started/)
 - [Differences to Python](https://docs.julialang.org/en/v1/manual/noteworthy-differences/#Noteworthy-differences-from-Python)
-- [Differences to Matlab][https://docs.julialang.org/en/v1/manual/noteworthy-differences/#Noteworthy-differences-from-MATLAB]
+- [Differences to Matlab](https://docs.julialang.org/en/v1/manual/noteworthy-differences/#Noteworthy-differences-from-MATLAB)
 - [Julia Tutorials](https://julialang.org/learning/tutorials/)
 - [Developing Packages](https://julialang.org/contribute/developing_package/)
 - [Pkg docs](https://pkgdocs.julialang.org/v1/managing-packages/#Adding-unregistered-packages)
