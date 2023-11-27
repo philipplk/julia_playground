@@ -42,6 +42,12 @@ class System:
         v = state[1]
         return np.diag([self.mass * self.gravity * self.length * np.cos(q), 1])
 
+    def get_J_matrix(self):
+        return np.array([[0, 1], [-1, 0]])
+
+    def get_E_matrix(self, state):
+        return np.diag([1, self.mass * self.length**2])
+
 
 class TimeStepper:
     def __init__(self, **kwargs):
@@ -76,41 +82,43 @@ class Solver:
             tangent matrix of Newtons method.
 
         """
+        J = self.system.get_J_matrix()
+        E_n = self.system.get_E_matrix(state_n)
+        E_n1 = self.system.get_E_matrix(state_n1)
+
         if integrator == "euler_explicit":
             # explicit Euler, evaluates z at t_n
             z_n = self.system.get_z_vector(state_n)
             residual = (
-                self.system.E_matrix @ (state_n1 - state_n)
-                - self.timeStepper.timestepsize * self.system.J_matrix @ z_n
+                E_n1 @ state_n1
+                - E_n @ state_n
+                - self.timeStepper.timestepsize * J @ z_n
             )
-            tangent = self.system.E_matrix
+            tangent = E_n1
 
         elif integrator == "euler_implicit":
             # implicit Euler, evaluates z at t_n1
             z_n1 = self.system.get_z_vector(state_n1)
             dzn1_dxn1 = self.system.get_Jacobian(state_n1)
             residual = (
-                self.system.E_matrix @ (state_n1 - state_n)
-                - self.timeStepper.timestepsize * self.system.J_matrix @ z_n1
+                E_n1 @ state_n1
+                - E_n @ state_n
+                - self.timeStepper.timestepsize * J @ z_n1
             )
-            tangent = (
-                self.system.E_matrix
-                - self.timeStepper.timestepsize * self.system.J_matrix @ dzn1_dxn1
-            )
+            tangent = E_n1 - self.timeStepper.timestepsize * J @ dzn1_dxn1
 
         elif integrator == "midpoint":
             # Midpoint rule, evaluates z at t_n05
             state_n05 = 0.5 * (state_n + state_n1)
             z_n05 = self.system.get_z_vector(state_n05)
             dzn05_dxn1 = 0.5 * self.system.get_Jacobian(state_n1)
+
             residual = (
-                self.system.E_matrix @ (state_n1 - state_n)
-                - self.timeStepper.timestepsize * self.system.J_matrix @ z_n05
+                E_n1 @ state_n1
+                - E_n @ state_n
+                - self.timeStepper.timestepsize * J @ z_n05
             )
-            tangent = (
-                self.system.E_matrix
-                - self.timeStepper.timestepsize * self.system.J_matrix @ dzn05_dxn1
-            )
+            tangent = E_n1 - self.timeStepper.timestepsize * J @ dzn05_dxn1
 
         return residual, tangent
 

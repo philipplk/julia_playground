@@ -10,16 +10,11 @@ import matplotlib.pyplot as plt
 import simulation
 
 # System parameters
-mass = 1.0
-length = 1.0
 system = simulation.System(
-    mass=mass,
+    mass=1.0,
     gravity=9.81,
-    length=length,
-    E_matrix=np.diag([1, mass * length**2]),
-    J_matrix=np.array([[0, 1], [-1, 0]]),
+    length=1.0,
 )
-del mass, length
 
 # Timestepper parameters
 
