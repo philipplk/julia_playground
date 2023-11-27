@@ -5,15 +5,14 @@ Created on Wed Nov 22 18:14:34 2023
 """
 
 
-
 import numpy as np
 import matplotlib.pyplot as plt
-import mechanics
+import simulation
 
 # System parameters
 mass = 1.0
 length = 1.0
-system = mechanics.System(
+system = simulation.System(
     mass=mass,
     gravity=9.81,
     length=length,
@@ -24,14 +23,14 @@ del mass, length
 
 # Timestepper parameters
 
-timeStepper = mechanics.TimeStepper(
+timeStepper = simulation.TimeStepper(
     timestepsize=0.05,  # timestep size
     time_start=0.0,  # start time
     time_end=3.0,  # end time
 )
 
 # Solver parameters
-solver = mechanics.Solver(
+solver = simulation.Solver(
     system=system,
     timeStepper=timeStepper,
     newton_epsilon=1e-7,  # tolerance of Newton's method (norm of residual vector),
