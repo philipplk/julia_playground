@@ -1,0 +1,8 @@
+name = "Code"
+uuid = "e94808be-13b1-4a1b-9bfa-ebe8d1447eb1"
+authors = ["Philipp Kinon <philipp.kinon@kit.edu>"]
+version = "0.1.0"
+
+[deps]
+IJulia = "7073ff75-c697-5162-941a-fcdaad2a7d2a"
+LinearAlgebra = "37e2e46d-f89d-539d-b4ee-838fcccc9c8e"

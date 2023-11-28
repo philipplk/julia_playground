@@ -1,6 +1,6 @@
 import LinearAlgebra as la
-include("code.jl")
-import .code: newton_update
+include("src/Code.jl")
+import .Code: newton_update
 
 # system parameters
 gravity = 9.81
