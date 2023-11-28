@@ -32,7 +32,9 @@ You can now add Packages easily
 ```Julia
 (NewProject) pkg> add LinearAlgebra
 ```
-which automatically creates a `Manifest.toml` where all dependencies are listed. `Project.toml` should now only mention _LinearAlgebra_ if you check for the status. You can add specific versions of packages using
+which automatically creates a `Manifest.toml` where all dependencies are listed. `Project.toml` should now only mention _LinearAlgebra_ if you check for the status. 
+
+You can add specific versions of packages using
 ```Julia
 (NewProject) pkg> add IJulia@1.24.2
 ```
@@ -50,4 +52,4 @@ Note that `activate` by itself does not install missing dependencies. If you onl
 (ForeignProject) pkg> instantiate
 ```
 
-If you already have a resolved `Manifest.toml`, then you will still need to ensure that the packages are installed and with the correct versions. Again `instantiate` does this for you.
+If you already have a resolved `Manifest.toml`, then you will still need to ensure that the packages are installed and with the correct versions. Again `instantiate` does this for you. Let's say: Project.toml is equivalent to _requirements.txt_ and Manifest.toml corresponds to _requirements_developer.txt_ in the Python context.
