@@ -7,12 +7,12 @@ First of all, make sure that your base environment is clean.
 julia
 ```
 Go into package-mode and check the status of your environment (currently the base environment named `@v1.9`)
-```julia
+```Julia
 ]
 (@v1.9) pkg> status
 ```
 By `remove <PackageName>` you can now remove packages until `status` displays `(empty project)`, e.g.,
-```julia
+```Julia
 (@v1.9) pkg> remove LinearAlgebra
 ```
 
